@@ -1,0 +1,36 @@
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe.config
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.pdb
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.AssemblyReference.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.MainForm.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.AdvanceSetup.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.Properties.Resources.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.setup.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.GenerateResource.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.CoreCompileInputs.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.exe
+D:\FPT SOFTWARE\UP SKILLS\Mock\PC_TOOL_GIT\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.pdb
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe.config
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\bin\Debug\PC_TOOLV2.pdb
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.AssemblyReference.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.MainForm.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.AdvanceSetup.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.Properties.Resources.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.setup.resources
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.GenerateResource.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.CoreCompileInputs.cache
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.exe
+D:\FPT SOFTWARE\UP SKILLS\Mock\Final\PC_TOOLV2\obj\Debug\PC_TOOLV2.pdb
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe.config
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\bin\Debug\PC_TOOLV2.exe
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\bin\Debug\PC_TOOLV2.pdb
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.AssemblyReference.cache
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.MainForm.resources
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.AdvanceSetup.resources
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.Properties.Resources.resources
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.setup.resources
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.GenerateResource.cache
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOL_Group2_KhangMT.csproj.CoreCompileInputs.cache
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.exe
+C:\Users\ndhie\Downloads\FT_02_2024_Mock\Pc_Tool\PC_TOOLV2\obj\Debug\PC_TOOLV2.pdb
