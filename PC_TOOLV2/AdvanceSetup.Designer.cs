@@ -96,7 +96,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form2
+            // AdvanceSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,8 +107,8 @@
             this.Controls.Add(this.listBaundrate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listPortCb);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "AdvanceSetup";
+            this.Text = "Advanced Setup";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

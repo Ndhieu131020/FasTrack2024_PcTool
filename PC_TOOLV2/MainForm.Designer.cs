@@ -44,7 +44,7 @@
             this.rotationWarningLabel = new System.Windows.Forms.Label();
             this.distanceWarningLabel = new System.Windows.Forms.Label();
             this.distanceLabel = new System.Windows.Forms.Label();
-            this.rotaionLabel = new System.Windows.Forms.Label();
+            this.rotationLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.volang_picturebox)).BeginInit();
@@ -77,16 +77,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Location = new System.Drawing.Point(37, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 25);
+            this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Connection";
+            this.label1.Text = "Status";
             // 
             // statusConnectBtn
             // 
             this.statusConnectBtn.BackColor = System.Drawing.Color.Lime;
-            this.statusConnectBtn.Location = new System.Drawing.Point(137, 26);
+            this.statusConnectBtn.Location = new System.Drawing.Point(125, 28);
             this.statusConnectBtn.Name = "statusConnectBtn";
             this.statusConnectBtn.Size = new System.Drawing.Size(28, 23);
             this.statusConnectBtn.TabIndex = 3;
@@ -180,18 +180,18 @@
             this.distanceLabel.Name = "distanceLabel";
             this.distanceLabel.Size = new System.Drawing.Size(250, 50);
             this.distanceLabel.TabIndex = 25;
-            this.distanceLabel.Text = "Connection";
+            this.distanceLabel.Text = "Not connected";
             this.distanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // rotaionLabel
+            // rotationLabel
             // 
-            this.rotaionLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rotaionLabel.Location = new System.Drawing.Point(118, 64);
-            this.rotaionLabel.Name = "rotaionLabel";
-            this.rotaionLabel.Size = new System.Drawing.Size(250, 50);
-            this.rotaionLabel.TabIndex = 24;
-            this.rotaionLabel.Text = "Connection";
-            this.rotaionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rotationLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rotationLabel.Location = new System.Drawing.Point(118, 64);
+            this.rotationLabel.Name = "rotationLabel";
+            this.rotationLabel.Size = new System.Drawing.Size(250, 50);
+            this.rotationLabel.TabIndex = 24;
+            this.rotationLabel.Text = "Not connected";
+            this.rotationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -211,7 +211,7 @@
             this.ClientSize = new System.Drawing.Size(1084, 590);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.distanceLabel);
-            this.Controls.Add(this.rotaionLabel);
+            this.Controls.Add(this.rotationLabel);
             this.Controls.Add(this.distanceWarningLabel);
             this.Controls.Add(this.rotationWarningLabel);
             this.Controls.Add(this.pingLabel);
@@ -225,7 +225,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.volang_picturebox);
             this.Name = "MainForm";
-            this.Text = " ";
+            this.Text = " PC Tool Group 2";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.volang_picturebox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -251,7 +251,7 @@
         private System.Windows.Forms.Label rotationWarningLabel;
         private System.Windows.Forms.Label distanceWarningLabel;
         private System.Windows.Forms.Label distanceLabel;
-        private System.Windows.Forms.Label rotaionLabel;
+        private System.Windows.Forms.Label rotationLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
     }

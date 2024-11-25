@@ -100,7 +100,12 @@ namespace PC_TOOLV2
          */
         private string IdDataNode1 = "192";
         private string IdDataNode2 = "208";
-
+        private string IdRequestConnectNode1 = "161";
+        private string IdRequestConnectNode2 = "162";
+        private string IdRequestConnectForwader = "160";
+        private string DataConfirmConnect = "255";
+        private string DataConfirmData = "65535";
+        private string DataRequestConnect ="10";
         /*
          * A filter for specific response IDs.
          * Only messages with matching IDs are processed.
@@ -122,10 +127,16 @@ namespace PC_TOOLV2
         private Stopwatch pingTimeout = new Stopwatch();
 
         /*
-         * Path to the configuration file.
+         * Path to the configuration Data Warning file.
          * This file stores warning thresholds for rotation angle and distance.
          */
-        private string filePath = "./Config.txt";
+        private string configDataWarningPath = "./configDataFile.txt";
+
+        /*
+         * Path to the configuration Data Warning file.
+         * This file stores configuration for serialport.
+         */
+        private string configSerialPath = "./configSerialFile.txt";
 
         /*
          * Method to check if a response ID exists in the `mappingData` dictionary.
@@ -164,12 +175,24 @@ namespace PC_TOOLV2
             // Load the original image for the steering wheel
             originalImag = volang_picturebox.Image;
 
-            // Read warning thresholds from the configuration file, if it exists
-            if (File.Exists(filePath))
+            // Read warning thresholds from the warning configuration file, if it exists
+            if (File.Exists(configDataWarningPath))
             {
-                buffer = File.ReadAllText(filePath);
+                buffer = File.ReadAllText(configDataWarningPath);
                 int.TryParse(buffer.Split(':')[0], out Data_Warning.Rotaion);
                 int.TryParse(buffer.Split(':')[1], out Data_Warning.Distance);
+            }
+            // Read infor of serial port from the serial port configuration file, if it exists
+            if (File.Exists(configSerialPath))
+            {
+                buffer = File.ReadAllText(configSerialPath);
+                serialPort_Current.PortName = buffer.Split(':')[0];
+                int.TryParse(buffer.Split(':')[1], out serialPort_Current.Baudrate);
+            }
+            else
+            {
+                serialPort_Current.Baudrate = 9600;
+                serialPort_Current.PortName = "COM9";
             }
 
             // Update labels to display the safety thresholds
@@ -177,8 +200,6 @@ namespace PC_TOOLV2
             distanceWarningLabel.Text = "Safety: " + Data_Warning.Distance.ToString() + "cm";
 
             // Configure default Serial Port settings
-            serialPort_Current.Baudrate = 9600;
-            serialPort_Current.PortName = "COM9";
             Forwader.PortName = serialPort_Current.PortName;
             Forwader.BaudRate = serialPort_Current.Baudrate;
 
@@ -250,26 +271,26 @@ namespace PC_TOOLV2
         // Function to initialize the PC Tool and establish initial connections.
         private void Task_PCToolInit()
         {
-            SendRequestToNode("160", "10"); // Send the first request to the forwader.
-            if (checkRequestConnection("160", "255") == true) // Check if the connection was successful.
+            SendRequestToNode(IdRequestConnectForwader, DataRequestConnect); // Send the first request to the forwader.
+            if (checkRequestConnection(IdRequestConnectForwader, DataConfirmConnect) == true) // Check if the connection was successful.
             {
-                SendRequestToNode("161", "10"); // Send the second request to the node 1 .
-                if (checkRequestConnection("161", "255") == true)
+                SendRequestToNode(IdRequestConnectNode1, DataRequestConnect); // Send the second request to the node 1 .
+                if (checkRequestConnection(IdRequestConnectNode1, DataConfirmConnect) == true)
                 {
                     this.Invoke(new Action(() => // Update the UI to indicate connection success.
                     {
-                        rotaionLabel.Text = "Connected";
+                        rotationLabel.Text = "Connected";
                     }));
                 }
                 else
                 {
                     this.Invoke(new Action(() => // Update the UI to indicate disconnection.
                     {
-                        rotaionLabel.Text = "Disconnection";
+                        rotationLabel.Text = "Disconnection";
                     }));
                 }
-                SendRequestToNode("162", "10"); // Send the third request to the node 2.
-                if (checkRequestConnection("162", "255") == true)
+                SendRequestToNode(IdRequestConnectNode2, DataRequestConnect); // Send the third request to the node 2.
+                if (checkRequestConnection(IdRequestConnectNode2, DataConfirmConnect) == true)
                 {
                     this.Invoke(new Action(() => // Update the UI to indicate connection success.
                     {
@@ -306,17 +327,17 @@ namespace PC_TOOLV2
                 statusConnectBtn.BackColor = Color.Yellow; // Update the UI to indicate reconnection attempt.
             }));
             while (TimerCounter.ElapsedMilliseconds < 1000) ; // Wait for the timer to reach 1 second.
-            SendRequestToNode("160", "10"); // Send a reconnection request.
-            if (checkRequestConnection("160", "255") == true) // Check if reconnection was successful.
+            SendRequestToNode(IdRequestConnectForwader, DataRequestConnect); // Send a reconnection request.
+            if (checkRequestConnection(IdRequestConnectForwader, DataConfirmConnect) == true) // Check if reconnection was successful.
             {
                 pcToolState = PCToolState_t.PCTool_Running; // Transition to the Running state.
-                TimerCounter.Stop();
-                TimerCounter.Reset();
             }
             if (serialPortInforQueue.Count > 0) // If there are pending serial port changes, transition to Pause state.
             {
                 pcToolState = PCToolState_t.PCTool_Pause;
             }
+            TimerCounter.Stop();
+            TimerCounter.Reset();
         }
 
         // Function to handle operations when the PC Tool is in the Running state.
@@ -330,15 +351,15 @@ namespace PC_TOOLV2
             if (dataReceivedQueue.Count > 0) // Check if there is incoming data to process.
             {
                 tpmMessage = dataReceivedQueue.Dequeue(); // Retrieve the next message from the queue.
-                SendResponseToForwader(tpmMessage.Id, "65535"); // Send acknowledgment to the forwarder.
+                SendResponseToForwader(tpmMessage.Id, DataConfirmData); // Send acknowledgment to the forwarder.
 
                 if (String.Compare(tpmMessage.Id, IdDataNode1) == 0) // Handle messages from Node 1.
                 {
-                    if (String.Compare(tpmMessage.Message, "65535") == 0) // Check for disconnection.
+                    if (String.Compare(tpmMessage.Message, DataConfirmData) == 0) // Check for disconnection.
                     {
                         this.Invoke(new Action(() =>
                         {
-                            rotaionLabel.Text = "Disconnected";
+                            rotationLabel.Text = "Disconnected";
                             RotationWarningBtn.BackColor = Color.Yellow;
                         }));
                     }
@@ -350,7 +371,7 @@ namespace PC_TOOLV2
                         Information.Rotaion = Information.Rotaion - 90;
                         this.Invoke(new Action(() =>
                         {
-                            rotaionLabel.Text = Information.Rotaion.ToString() + "°";
+                            rotationLabel.Text = Information.Rotaion.ToString() + "°";
                             if (Math.Abs(Information.Rotaion) > Data_Warning.Rotaion)
                             {
                                 RotationWarningBtn.BackColor = Color.Red;
@@ -365,7 +386,7 @@ namespace PC_TOOLV2
                 }
                 else if (String.Compare(tpmMessage.Id, IdDataNode2) == 0) // Handle messages from Node 2.
                 {
-                    if (String.Compare(tpmMessage.Message, "65535") == 0) // Check for disconnection.
+                    if (String.Compare(tpmMessage.Message, DataConfirmData) == 0) // Check for disconnection.
                     {
                         this.Invoke(new Action(() =>
                         {
@@ -398,8 +419,8 @@ namespace PC_TOOLV2
             {
                 checkTimeout.Stop();
                 checkTimeout.Reset();
-                SendRequestToNode("160", "10"); // Send periodic requests to maintain connection.
-                if (checkRequestConnection("160", "255") != true)
+                SendRequestToNode(IdRequestConnectForwader, DataRequestConnect); // Send periodic requests to maintain connection.
+                if (checkRequestConnection(IdRequestConnectForwader, DataConfirmConnect) != true)
                 {
                     pcToolState = PCToolState_t.PCTool_Disconnected; // Transition to Disconnected if no response.
                 }
@@ -560,7 +581,7 @@ namespace PC_TOOLV2
             distanceWarningLabel.Text = "Safety: " + Data_Warning.Distance.ToString() + "cm";
 
             // Save the warning data to a file
-            File.WriteAllText(filePath, Data_Warning.Rotaion.ToString() + ":" + Data_Warning.Distance.ToString());
+            File.WriteAllText(configDataWarningPath, Data_Warning.Rotaion.ToString() + ":" + Data_Warning.Distance.ToString());
         }
 
         //This function updates the serial port information and handles changes.
@@ -580,6 +601,7 @@ namespace PC_TOOLV2
             {
                 pcToolState = PCToolState_t.PCTool_Pause;
                 serialPortInforQueue.Enqueue(new SerialPortInfor_t(serialPort_Current.PortName, serialPort_Current.Baudrate));
+                File.WriteAllText(configSerialPath, serialPort_Current.PortName + ":" + serialPort_Current.Baudrate.ToString());
             }
         }
 

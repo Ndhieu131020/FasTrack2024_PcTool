@@ -147,7 +147,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button2);
             this.Name = "setup";
-            this.Text = "setup";
+            this.Text = "Normal Setup";
             this.Load += new System.EventHandler(this.setup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
